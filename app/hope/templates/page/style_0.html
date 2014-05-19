@@ -1,0 +1,13 @@
+{=*$totalPage:总页数*=} {=*$pageSize:每页显示条数*=} {=*$prePage:上一页页码*=} {=*$nextPage:下一页页码*=} {=*$firstPage:第一页页码*=} {=*$lastPage:最后页页码*=} {=*$totalNum:总条目数*=} {=*$page:当前页页码*=} {=*$link:翻页链接*=} {=*$paramStr:继承参数*=}
+<div class="pagination">
+	{=if $page != 1=}<span class="floblock"><a  href="{=$link=}{=$paramStr=}page={=$prePage=}">上一页</a></span>{=else=}<span class="floblock"><a href="javascript:;">上一页</a></span>{=/if=}
+	{=if $page > 3=}<span class="floblock"><a href="{=$link=}{=$paramStr=}page={=math equation="x - y" x=$page y=3=}">{=math equation="x - y" x=$page y=3=}</a></span>{=/if=}
+	{=if $page > 2=}<span class="floblock"><a href="{=$link=}{=$paramStr=}page={=math equation="x - y" x=$page y=2=}">{=math equation="x - y" x=$page y=2=}</a></span>{=/if=}
+	{=if $page > 1=}<span class="floblock"><a href="{=$link=}{=$paramStr=}page={=math equation="x - y" x=$page y=1=}">{=math equation="x - y" x=$page y=1=}</a></span>{=/if=}
+	<span class="current">{=$page=}</span>
+	{=if $lastPage - $page >= 1=}<span class="floblock"><a href="{=$link=}{=$paramStr=}page={=math equation="x + y" x=$page y=1=}">{=math equation="x + y" x=$page y=1=}</a></span>{=/if=}
+	{=if $lastPage - $page >= 2=}<span class="floblock"><a href="{=$link=}{=$paramStr=}page={=math equation="x + y" x=$page y=2=}">{=math equation="x + y" x=$page y=2=}</a></span>{=/if=}
+	{=if $lastPage - $page >= 3=}<span class="floblock"><a href="{=$link=}{=$paramStr=}page={=math equation="x + y" x=$page y=3=}">{=math equation="x + y" x=$page y=3=}</a></span>{=/if=}
+	{=if $lastPage - $page >= 4=}<span class="floblock"><a href="{=$link=}{=$paramStr=}page={=math equation="x + y" x=$page y=4=}">{=math equation="x + y" x=$page y=4=}</a></span>{=/if=}
+	{=if $lastPage - $page >= 1=}<span class="floblock"><a href="{=$link=}{=$paramStr=}page={=$nextPage=}">下一页</a></span>{=else=}<span class="floblock"><a href="javascript:;">下一页</a></span>{=/if=}
+</div>
